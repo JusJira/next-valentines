@@ -5,7 +5,7 @@ import heart from "@/public/heart.json";
 
 function HeartAnimation() {
   return (
-    <div className='absolute'>
+    <div className='absolute z-0 top-0'>
     <Lottie animationData={heart} loop={true} />
     </div>
   )
