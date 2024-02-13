@@ -28,6 +28,7 @@ export async function generateMetadata({
     title: "Gift for " + (info?.to || "you"),
     openGraph: {
       images: [process.env.WEBSITE_URL + "/og?title=" + info?.to],
+      url: process.env.WEBSITE_URL + "/" + params.slug,
     },
   };
 }
