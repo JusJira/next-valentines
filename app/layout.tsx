@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${merienda.variable} bg-[#efcfe3]`}>
-        <main className="min-h-[100dvh] flex items-center justify-center overflow-hidden relative">{children}</main>
+        <main className="h-[100dvh] flex items-center justify-center overflow-hidden relative">{children}</main>
       </body>
       <Toaster />
     </html>
