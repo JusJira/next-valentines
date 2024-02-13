@@ -9,10 +9,15 @@ const merienda = Merienda({
   variable: '--font-merienda',
 });
 
-export const metadata: Metadata = {
-  title: "Roses - Send a rose to your loved ones",
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  return {
+    title: "Roses - Send a rose to your loved ones",
   description: "Send a lovely rose to your loved ones for free.",
-};
+    openGraph: {
+      images: [process.env.WEBSITE_URL + '/og']
+    }
+  }
+}
 
 export default function RootLayout({
   children,

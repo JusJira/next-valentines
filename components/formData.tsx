@@ -16,9 +16,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import copy from "copy-to-clipboard";
 import { addData } from "@/actions/actions";
+import { Textarea } from "./ui/textarea";
+import { ReloadIcon } from "@radix-ui/react-icons"
 
 const formSchema = z.object({
   sender: z.string().optional(),
@@ -88,7 +90,11 @@ export function URLForm() {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="I love U!" {...field} />
+                  <Textarea
+                    placeholder="I love U!"
+                    className="resize-none"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
                 <FormDescription>
@@ -97,9 +103,16 @@ export function URLForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" disabled={isLoading} className="w-full">
-            Send
-          </Button>
+          {isLoading ? (
+            <Button disabled className="w-full">
+              <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+              Sending
+            </Button>
+          ) : (
+            <Button type="submit" className="w-full">
+              Send
+            </Button>
+          )}
         </form>
       </Form>
     );
