@@ -4,12 +4,13 @@ import { notFound } from "next/navigation";
 import rose from "@/public/rose.png";
 import Image from "next/image";
 import HeartAnimation from "@/components/heartAnimation";
+import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}) {
+}): Promise<Metadata> {
   const info = await db.query.gift.findFirst({
     where: (gift, { eq }) => eq(gift.id, params.slug),
   });

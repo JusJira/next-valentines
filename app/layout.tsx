@@ -14,7 +14,7 @@ export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}) {
+}): Promise<Metadata>  {
   return {
     metadataBase: new URL(process.env.WEBSITE_URL as string),
     alternates: {
