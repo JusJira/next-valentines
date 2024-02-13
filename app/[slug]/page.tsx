@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     return {
       title: 'Gift for ' + (info?.to || 'you'),
       openGraph: {
-        images: [process.env.NEXT_PUBLIC_URL + '/og?title=' + info?.to]
+        images: [process.env.WEBSITE_URL + '/og?title=' + info?.to]
       }
     }
   }

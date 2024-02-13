@@ -19,7 +19,7 @@ export async function addData(data: Inputs) {
   await db
     .insert(gift)
     .values({ id: id, from: sender, to: recipient, msg: message });
-  const url = process.env.NEXT_PUBLIC_URL + "/" + id;
+  const url = process.env.WEBSITE_URL + "/" + id;
 
   return { url, id, recipient };
 }
